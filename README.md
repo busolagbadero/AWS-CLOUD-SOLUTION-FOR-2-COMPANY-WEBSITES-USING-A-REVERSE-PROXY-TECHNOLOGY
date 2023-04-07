@@ -269,4 +269,57 @@ You can configure a rule to cache tooling requests and forward them to the tooli
 ![b-vpc35](https://user-images.githubusercontent.com/94229949/230583731-6ea5a878-a47c-4a1d-9a6c-51481ca4390b.png)
 
 
+create launch templates for Bastion, Nginx, Wordpress, and Tooling. Wordpress and Tooling will use the Webserver AMI.Input a bash script in the user data section.
+
+
+![b-vpc41](https://user-images.githubusercontent.com/94229949/230686743-f796c2bd-5aa2-4ca1-a577-5523a5f56cb4.png)
+
+
+![b-vpc37](https://user-images.githubusercontent.com/94229949/230687149-e3cd578c-3f1a-427e-99bd-be67380e4990.png)
+
+
+![b-vpc39](https://user-images.githubusercontent.com/94229949/230687211-6b96a1c4-026f-4d59-84cd-196be58cf394.png)
+
+
+![b-vpc40](https://user-images.githubusercontent.com/94229949/230687217-154eb515-9e96-4cd3-9fff-a767d0329887.png)
+
+
+![b-vpc42](https://user-images.githubusercontent.com/94229949/230687229-b56101a4-dfd9-4f04-b4ac-a85825ba7579.png)
+
+
+## configuring auto-scaling group
+Selecting the right launch template
+
+
+Selecting the VPC
+
+
+Selecting both public subnets
+
+
+Enabling Application Load Balancer for the AutoScalingGroup (ASG)
+
+
+Selecting the target group you created before
+
+
+Ensuring health checks for both EC2 and ALB
+
+
+Setting the desired capacity, Minimum capacity and Maximum capacity to 2
+
+
+Setting the scale out option if CPU utilization reaches 90%
+
+
+Activating SNS topic to send scaling notifications
+
+![b-vpc47](https://user-images.githubusercontent.com/94229949/230690213-878cf107-aeb3-45dd-b006-33b5d7fd6c3a.png)
+
+
+![d-14](https://user-images.githubusercontent.com/94229949/230690246-891d800a-e038-4ee4-946a-f77013c6d3b2.png)
+
+
+![d-15](https://user-images.githubusercontent.com/94229949/230690254-7014acc1-175d-4fa1-8632-195ce02a1403.png)
+
 
