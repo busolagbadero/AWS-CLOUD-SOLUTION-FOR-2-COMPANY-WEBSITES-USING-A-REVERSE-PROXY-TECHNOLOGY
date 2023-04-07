@@ -105,3 +105,35 @@ it is important to create a certificate,this is because when setting up an appli
 ![b-vpc22](https://user-images.githubusercontent.com/94229949/230513009-5cbbb828-8d6f-41b9-bbd6-228ebf835b39.png)
 
 
+To make the Amazon EFS available in a specific subnet, you must add a mount target to the filesystem and specify the subnet. In this case, it is advisable to specify private subnet 1 and 2 so that all resources in these subnets can mount the file system. To ensure the security of the data layer, the security group settings for the mount target should be set to the data layer security group.
+
+
+![b-vpc23](https://user-images.githubusercontent.com/94229949/230514585-63d28d7c-713e-4844-9bef-33910d3e7da9.png)
+
+
+![b-vpc24](https://user-images.githubusercontent.com/94229949/230514602-2b95b15f-0ef0-4890-9391-b732d517a120.png)
+
+
+The next step is to create an access point that specifies the location where the webservers will mount. This will create two mount points, one for the Tooling server and another for the Wordpress server.
+
+
+![b-vpc25](https://user-images.githubusercontent.com/94229949/230515141-9149768b-e5b7-444b-8094-3ee9f9ac5cb7.png)
+
+
+Before creating an Amazon RDS instance, it is necessary to create a KMS key that will be used to encrypt the RDS instanceand. 
+
+
+![b-vpc26](https://user-images.githubusercontent.com/94229949/230516291-b37163b7-f101-4a20-8a12-0128c87d0807.png)
+
+
+![b-vpc27](https://user-images.githubusercontent.com/94229949/230516312-70b99ba8-dcab-44a5-b21a-03e8b215706a.png)
+
+
+create a Database and a subnet group in RDS using the data layer security group.
+
+
+![b-vpc28](https://user-images.githubusercontent.com/94229949/230516571-35f28142-b0f0-48fc-b634-3a65ab101912.png)
+
+
+![b-vpc29](https://user-images.githubusercontent.com/94229949/230516582-5c27cac4-6051-4cd6-86d9-ed8a605ecf00.png)
+
