@@ -244,3 +244,29 @@ For each of the instance created, we create AMI on each.
 ![b-vpc34](https://user-images.githubusercontent.com/94229949/230568949-7635f581-82c5-49d1-bb82-3c57264da781.png)
 
 
+Since Nginx, WordPress, and Tooling are all behind a load balancer, you need to create target groups for each of them. The instances launched by the Auto-Scaling group will be added to these target groups.
+
+
+![b-vpc-1](https://user-images.githubusercontent.com/94229949/230579476-d445d260-dcdc-430d-b848-7b3090f1cc9d.png)
+
+
+![b-vpc-2](https://user-images.githubusercontent.com/94229949/230579502-a3b800ab-d32f-4519-894a-abc31d3a4337.png)
+
+
+
+![b-vpc-3](https://user-images.githubusercontent.com/94229949/230579514-66bb9184-f74a-475d-8245-23f688c66584.png)
+
+
+You will need to create two types of load balancers: an external load balancer and an internet-facing load balancer. Keep in mind that for a load balancer to work, it needs to have at least two availability zones.
+
+
+![b-vpc36](https://user-images.githubusercontent.com/94229949/230582745-9b29fc87-0326-4a8d-b622-f426ed91cce8.png)
+
+
+You can configure a rule to cache tooling requests and forward them to the tooling target. To do this, select the internal load balancer and go to the listeners section.
+
+
+![b-vpc35](https://user-images.githubusercontent.com/94229949/230583731-6ea5a878-a47c-4a1d-9a6c-51481ca4390b.png)
+
+
+
