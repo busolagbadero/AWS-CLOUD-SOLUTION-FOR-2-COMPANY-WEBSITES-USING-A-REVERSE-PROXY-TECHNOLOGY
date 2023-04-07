@@ -137,3 +137,110 @@ create a Database and a subnet group in RDS using the data layer security group.
 
 ![b-vpc29](https://user-images.githubusercontent.com/94229949/230516582-5c27cac4-6051-4cd6-86d9-ed8a605ecf00.png)
 
+Before creating the Autoscaling group, you need to perform the following steps:
+
+
+Create three instances using Red Hat as the operating system.
+
+
+
+
+Assign the security group to each instance, with names Bastion, Nginx, and Webserver.
+
+
+
+Launch each instance and carry out the necessary installation and configuration on them.
+
+
+For Bastion, Nginx and Webserver.
+
+
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+
+yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+
+yum install wget vim python3 telnet htop git mysql net-tools chrony -y
+
+
+systemctl start chronyd
+
+
+systemctl enable chronyd
+
+
+
+Dependencies for Nginx and Webserver (needed so that our servers can function properly on all the redhat instance)
+
+
+setsebool -P httpd_can_network_connect=1
+
+
+setsebool -P httpd_can_network_connect_db=1
+
+
+setsebool -P httpd_execmem=1
+
+
+setsebool -P httpd_use_nfs 1
+
+
+To mount targets on the Elastic File System, you need to install the Amazon EFS utils on the Nginx and Webserver instances.
+
+
+git clone https://github.com/aws/efs-utils
+
+
+cd efs-utils
+
+
+yum install -y make
+
+
+yum install -y rpm-build
+
+
+make rpm 
+
+
+yum install -y  ./build/amazon-efs-utils*rpm
+
+
+In order to secure the connection between the load balancer and the webserver via port 443, a self-signed certificate needs to be installed on the Nginx instance. This is necessary because the load balancer will be sending traffic to the webserver on port 443 and listening on port 443 as well.
+
+
+sudo mkdir /etc/ssl/private
+
+
+sudo chmod 700 /etc/ssl/private
+
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ACS.key -out /etc/ssl/certs/ACS.crt
+
+
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+
+![b-vpc30](https://user-images.githubusercontent.com/94229949/230569319-dde91665-576d-4988-a9e5-ec4c46764663.png)
+
+
+
+![b-vpc31](https://user-images.githubusercontent.com/94229949/230569333-ea888f20-3984-4dcf-847d-19da2e1c2bb4.png)
+
+
+
+![b-vpc32](https://user-images.githubusercontent.com/94229949/230569391-beed85a8-c137-4880-8aea-2753855fdba3.png)
+
+After successfully generating the certificate, you can enter the private IPv4 DNS of the Nginx or Webserver instance as the common name. Note that the load balancer does not validate the certificates, but it still needs to be installed.
+
+
+To use the certificate, you need to specify the path to the ACS.crt and ACS.key files in the Nginx configuration.
+
+
+For each of the instance created, we create AMI on each.
+
+
+![b-vpc34](https://user-images.githubusercontent.com/94229949/230568949-7635f581-82c5-49d1-bb82-3c57264da781.png)
+
+
