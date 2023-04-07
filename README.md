@@ -120,7 +120,7 @@ The next step is to create an access point that specifies the location where the
 ![b-vpc25](https://user-images.githubusercontent.com/94229949/230515141-9149768b-e5b7-444b-8094-3ee9f9ac5cb7.png)
 
 
-Before creating an Amazon RDS instance, it is necessary to create a KMS key that will be used to encrypt the RDS instanceand. 
+Before creating an Amazon RDS instance, it is necessary to create a KMS key that will be used to encrypt the RDS instance. 
 
 
 ![b-vpc26](https://user-images.githubusercontent.com/94229949/230516291-b37163b7-f101-4a20-8a12-0128c87d0807.png)
