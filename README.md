@@ -323,3 +323,28 @@ Activating SNS topic to send scaling notifications
 ![d-15](https://user-images.githubusercontent.com/94229949/230690254-7014acc1-175d-4fa1-8632-195ce02a1403.png)
 
 
+Create the tooling and wordpress database on mysql.
+
+
+![b-vpc60](https://user-images.githubusercontent.com/94229949/230707025-47a75261-1d62-47cf-b368-44330dc06367.png)
+
+
+Create record for our load balancer (route 53).
+
+
+![b-vpc46](https://user-images.githubusercontent.com/94229949/230707584-50e919c2-edcf-4bd6-8393-0126ada5dd40.png)
+
+
+Check if All target grous are healthy.
+
+
+![b-vpc43](https://user-images.githubusercontent.com/94229949/230707683-f8c1381b-2a36-428c-b655-8b6486d15649.png)
+
+
+![b-vpc44](https://user-images.githubusercontent.com/94229949/230707685-2adf6986-9008-458d-82ec-a4372a0c640c.png)
+
+
+
+![b-vpc45](https://user-images.githubusercontent.com/94229949/230707689-4bd1d31b-5df6-4b4c-9a6e-670d54c97978.png)
+
+
