@@ -59,7 +59,7 @@ Edit routes in the private route table and associate it with the Nat-Gateway
 
 ![b-vpc16](https://user-images.githubusercontent.com/94229949/230504134-35e416b3-e655-4c7b-abc4-bd68ff1fb7fb.png)
 
-Create security group for:
+## Create security group for:
 
 -External Load balancer - Traffic from the internet (http, https).
 
@@ -137,7 +137,7 @@ create a Database and a subnet group in RDS using the data layer security group.
 
 ![b-vpc29](https://user-images.githubusercontent.com/94229949/230516582-5c27cac4-6051-4cd6-86d9-ed8a605ecf00.png)
 
-Before creating the Autoscaling group, you need to perform the following steps:
+## Before creating the Autoscaling group, you need to perform the following steps:
 
 
 Create three instances using Red Hat as the operating system.
@@ -257,7 +257,7 @@ Since Nginx, WordPress, and Tooling are all behind a load balancer, you need to 
 ![b-vpc-3](https://user-images.githubusercontent.com/94229949/230579514-66bb9184-f74a-475d-8245-23f688c66584.png)
 
 
-You will need to create two types of load balancers: an external load balancer and an internet-facing load balancer. Keep in mind that for a load balancer to work, it needs to have at least two availability zones.
+You will need to create two  load balancers: an external load balancer and an internet-facing load balancer. Keep in mind that for a load balancer to work, it needs to have at least two availability zones.
 
 
 ![b-vpc36](https://user-images.githubusercontent.com/94229949/230582745-9b29fc87-0326-4a8d-b622-f426ed91cce8.png)
@@ -288,6 +288,8 @@ create launch templates for Bastion, Nginx, Wordpress, and Tooling. Wordpress an
 
 
 ## configuring auto-scaling group
+
+
 Selecting the right launch template
 
 
@@ -335,7 +337,7 @@ Create record for our load balancer (route 53).
 ![b-vpc46](https://user-images.githubusercontent.com/94229949/230707584-50e919c2-edcf-4bd6-8393-0126ada5dd40.png)
 
 
-Check if All target grous are healthy.
+Check if All target groups are healthy.
 
 
 ![b-vpc43](https://user-images.githubusercontent.com/94229949/230707683-f8c1381b-2a36-428c-b655-8b6486d15649.png)
@@ -348,3 +350,16 @@ Check if All target grous are healthy.
 ![b-vpc45](https://user-images.githubusercontent.com/94229949/230707689-4bd1d31b-5df6-4b4c-9a6e-670d54c97978.png)
 
 
+## Result
+
+
+![b-vpc51](https://user-images.githubusercontent.com/94229949/230709564-8d8bf34b-23b3-4b5b-931d-1159913977b5.png)
+
+
+
+
+![b-vpc52](https://user-images.githubusercontent.com/94229949/230709576-b28c4e99-84c6-4e9d-94c4-0c5b9d31206d.png)
+
+
+
+![b-vpc53](https://user-images.githubusercontent.com/94229949/230709585-1cb6973a-d02d-42d0-b65d-2ee49355c3eb.png)
